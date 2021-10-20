@@ -1,2 +1,2 @@
 # Wstęp do programowania
-Python
+Pytka
