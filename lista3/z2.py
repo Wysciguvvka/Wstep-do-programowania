@@ -1,13 +1,9 @@
 # import math
-# import cmath
-def pierwiastki():
+# import sys
+
+
+def pierwiastki(a, b, c):
     """funkcja do obliczania rzeczywistych miejsc zerowych funkcji kwadratowej"""
-    try:
-        a = float(input("Podaj współczynnik A: "))
-        b = float(input("Podaj współczynnik B: "))
-        c = float(input("Podaj wyraz wolny C: "))
-    except ValueError:
-        return "Podaj poprawną liczbę"
     if a == 0:
         return "To nie funkcja kwadratowa"
     delta = b ** 2 - 4 * a * c
@@ -16,10 +12,22 @@ def pierwiastki():
     if delta > 0:
         x1 = (-1 * b + delta ** 0.5) / (2 * a)
         x2 = (-1 * b - delta ** 0.5) / (2 * a)
+        x1 = x1 if x1 != 0 else 0  # Usunięcie 'negative zero'
+        x2 = x2 if x2 != 0 else 0  # Usunięcie 'negative zero'
         return f"x1 = {x1:.2f}\nx2 = {x2:.2f}"
     x0 = (-1 * b) / (2 * a)
-    return f"x0 = {x0:.2f}" if x0 != 0 else f"x0 = {abs(x0):.2f}"  # zamiana -0.00 na 0.00
+    x0 = x0 if x0 != 0 else 0  # Usunięcie 'negative zero'
+    return f"x0 = {x0:.2f}"
 
 
 if __name__ == "__main__":
-    print(pierwiastki())
+    A = B = C = 0  # Usunięcie 'can be undefined' warning
+    try:
+        A = float(input("Podaj współczynnik A: "))
+        B = float(input("Podaj współczynnik B: "))
+        C = float(input("Podaj wyraz wolny C: "))
+    except ValueError:
+        print("Podaj poprawną liczbę.")
+        # sys.exit()
+        exit(1)
+    print(pierwiastki(A, B, C))
