@@ -2,9 +2,11 @@ def srednia_liczb(*args):
     """funckja obliczająca średnią N liczb zaokrągloną za pomocą funkcji int()"""
     if not args:
         return "Nie podano liczb."
+    suma = 0
     try:
-        suma = sum(args)
-        # można również użyć pętli for
+        # suma = sum(args)
+        for arg in args:
+            suma += arg
     except TypeError:
         return "Podano niepoprawną liczbę jako argument."
     srednia = int(suma / len(args))
