@@ -9,4 +9,4 @@ def srednia_liczb(*args):
 
 
 if __name__ == "__main__":
-    print(srednia_liczb(1,2,3,4,5,6,7,8,9))
+    print(srednia_liczb(1, 2, 3, 4, 5, 6, 7, 8, 9))
