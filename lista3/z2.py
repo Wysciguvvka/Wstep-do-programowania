@@ -21,13 +21,13 @@ def pierwiastki(a, b, c):
 
 
 if __name__ == "__main__":
-    A = B = C = 0  # Usunięcie 'can be undefined' warning
+    a1 = b1 = c1 = 0  # Usunięcie 'can be undefined' warning
     try:
-        A = float(input("Podaj współczynnik A: "))
-        B = float(input("Podaj współczynnik B: "))
-        C = float(input("Podaj wyraz wolny C: "))
+        a1 = float(input("Podaj współczynnik A: "))
+        b1 = float(input("Podaj współczynnik B: "))
+        c1 = float(input("Podaj wyraz wolny C: "))
     except ValueError:
         print("Podaj poprawną liczbę.")
         # sys.exit()
         exit(1)
-    print(pierwiastki(A, B, C))
+    print(pierwiastki(a1, b1, c1))
