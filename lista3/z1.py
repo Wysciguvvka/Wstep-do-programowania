@@ -5,7 +5,13 @@ def cena_biletu():
         wiek = int(input("podaj swój wiek: "))
     except ValueError:
         return "niepoprawny wiek"
-    cena = f"10zł" if wiek < 19 or wiek > 61 else f"20zł"
+    # cena = f"10zł" if not 19 < wiek < 61 else f"20zł"
+    if 19 < wiek < 61:
+        cena = f"20zł"
+    elif wiek >= 61:
+        cena = f"15zł"
+    else:
+        cena = f"10zł"
     return f"cena biletu to: {cena}"
 
 
