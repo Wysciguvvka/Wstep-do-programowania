@@ -12,12 +12,8 @@ def pierwiastki(a, b, c):
     if delta > 0:
         x1 = (-1 * b + delta ** 0.5) / (2 * a)
         x2 = (-1 * b - delta ** 0.5) / (2 * a)
-        x1 = x1 if x1 != 0 else 0  # Usunięcie 'negative zero'
-        x2 = x2 if x2 != 0 else 0  # Usunięcie 'negative zero'
         return f"x1 = {x1:.2f}\nx2 = {x2:.2f}"
-    x0 = (-1 * b) / (2 * a)
-    x0 = x0 if x0 != 0 else 0  # Usunięcie 'negative zero'
-    return f"x0 = {x0:.2f}"
+    return f"x0 = {(-1 * b) / (2 * a):.2f}"
 
 
 if __name__ == "__main__":
