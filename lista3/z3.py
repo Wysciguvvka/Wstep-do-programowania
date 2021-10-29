@@ -17,3 +17,4 @@ def srednia_liczb(*args):
 if __name__ == "__main__":
     # print(srednia_liczb.__doc__)
     print(srednia_liczb(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
+    print(srednia_liczb("liczba", 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))
