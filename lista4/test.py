@@ -11,5 +11,5 @@ def sortowanie(input_list):
 if __name__ == '__main__':
     nazwiska = ['Atestt', 'Ztest', 'Ktest', 'ltesttt', 'btest']
     sortowanie(nazwiska)
-    nazwiska = [3, 'Ztest', 'Ktest', 'ltesttt', 'btest']
-    sortowanie(nazwiska)
+    nazwiska1 = [3, 'Ztest', 'Ktest', 'ltesttt', 'btest']
+    sortowanie(nazwiska1)
