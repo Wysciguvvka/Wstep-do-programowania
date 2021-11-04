@@ -7,7 +7,7 @@ def shift(steps, input_list):
             for i in range(0, steps):
                 input_list.insert(0, input_list.pop())  # usuwa ostatni element, wpisując go na miejsce 0
         else:
-            for i in range(0, abs(steps)):
+            for i in range(steps, 0):
                 input_list.append(input_list.pop(0))  # usuwa pierwszy element, dodając go na koniec listy
         return input_list
     except TypeError:
