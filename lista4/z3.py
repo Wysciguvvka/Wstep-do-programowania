@@ -1,6 +1,12 @@
 if __name__ == '__main__':
     waznosc_mleka = ('04', '11', '2021')
     karton_mleka = {}
+    """
+    karton_mleka = {
+        'data_waznosci': waznosc_mleka,
+        ...
+    }
+    """
     karton_mleka['data_waznosci'] = waznosc_mleka
     karton_mleka['waga'] = '1l'
     karton_mleka['koszt'] = 5
