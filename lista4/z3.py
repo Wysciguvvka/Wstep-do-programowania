@@ -10,8 +10,7 @@ if __name__ == '__main__':
     karton_mleka['data_waznosci'] = waznosc_mleka
     karton_mleka['waga'] = '1l'
     karton_mleka['koszt'] = 5
-    karton_mleka['marka'] = 'Wadowickie'
-    # print(karton_mleka.values())
+    karton_mleka['marka'] = 'Mleczarz'
     print(karton_mleka['data_waznosci'], karton_mleka['waga'], karton_mleka['koszt'], karton_mleka['marka'])
     for value in karton_mleka.values():
         print(value)
