@@ -10,5 +10,5 @@ if __name__ == '__main__':
     for value in karton_mleka.values():
         print(value)
     ilosc = 6
-    cena = karton_mleka['koszt']*ilosc
+    cena = karton_mleka['koszt'] * ilosc
     print(f'Cena za {ilosc} kartonów mleka: {cena} zł')

@@ -1,4 +1,5 @@
 def shift(steps, input_list):
+    """Funkcja przesuwająca dane w liscie"""
     if not input_list:
         return []
     try:

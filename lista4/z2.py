@@ -1,4 +1,5 @@
 def sortowanie(input_list):
+    """funkcja sortująca nazwiska i wypisująca te, które mają więcej niż 5 znaków"""
     try:
         k_list = [x for x in sorted(input_list) if str(x)[0].upper() > 'K']
         print(f'Nazwiska aczynające się od liter pózniejszych w alfabecie niz K: {", ".join(k_list).title()}')
@@ -9,7 +10,8 @@ def sortowanie(input_list):
 
 
 if __name__ == '__main__':
-    nazwiska = ['Atestt', 'Ztest', 'Ktest', 'ltesttt', 'btest']
+    nazwiska = ['Adamski', 'Zegar', 'Kowalski', 'limes', 'bogdan']
     sortowanie(nazwiska)
-    nazwiska1 = [3, 'Ztest', 'Ktest', 'ltesttt', 'btest']
-    sortowanie(nazwiska1)
+    print('---------')
+    nazwiska = [3, 'Zegar', 'Kowalski', 'limes', 'bogdan']
+    sortowanie(nazwiska)
