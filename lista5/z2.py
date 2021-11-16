@@ -6,18 +6,21 @@ class Prostokat:
         self.a = a
         self.b = b
 
+    def pole(self):
+        return self.a * self.b
+
 
 class Kwadrat(Prostokat):
     """klasas wyliczająca pole kwadratu na podstawie długości boków"""
 
     def __init__(self, a, b):
+        """init"""
         Prostokat.__init__(self, a, b)
-        self.a = a
-        self.b = b
 
     def pole(self):
-        print(self.a)
+        return self.a * self.a
 
 
 if __name__ == "__main__":
-    Kwadrat.pole(1, 2)
+    print(Prostokat(5, 2).pole())
+    print(Kwadrat(5, 5).pole())
