@@ -25,11 +25,13 @@ class Student(Informacje):
         """Wyswietlenie informacji o studencie"""
         ocenianie = "\n".join([f"{przedmiot}: {ocena}" for przedmiot, ocena in self.oceny.items()])
         print(f"Student o ideksie {self.indeks}:\nImie: {self.imie}\n"
-              f"Nazwisko:{self.nazwisko}\nOceny studenta:\n{ocenianie}")
+              f"Nazwisko: {self.nazwisko}\nOceny studenta:\n{ocenianie}")
 
     def wyswietl_oceny(self):
         """Wyswietlenie ocen studenta"""
-        print(f"Oceny studenta {self.indeks}: {self.oceny}")
+        ocenianie = "\n".join([f"{przedmiot}: {ocena}" for przedmiot, ocena in self.oceny.items()])
+        #print(f"Oceny studenta {self.indeks}: {self.oceny}")
+        print(f"Oceny studenta {self.indeks}:\n{ocenianie}")
 
     def dodaj_oceny(self, przedmiot, ocena):
         """Dodanie nowej oceny do przedmiotu"""
@@ -79,5 +81,5 @@ if __name__ == "__main__":
     Student.wyswietl_oceny(student1)
     Student.wyswietl_oceny(student2)
     print('----')
-    Student.wyswietl_dane(student2)
+    Student.wyswietl_dane(student1)
     # Informacje.wyswietl_oceny(student0)
