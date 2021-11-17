@@ -7,6 +7,7 @@ class Prostokat:
         self.b = b
 
     def pole(self):
+        """Obliczenie pola figury"""
         return self.a * self.b
 
 
