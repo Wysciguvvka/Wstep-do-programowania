@@ -3,8 +3,9 @@ class Student:
 
     def __init__(self, imie, nazwisko, indeks):
         """init"""
-        if not indeks.isdecimal() or len(indeks) != 6:
-            print("podano niepoprawny index")
+        if not str(indeks).isdecimal() or len(indeks) != 6:
+            print("podano niepoprawny indeks")
+            # exit(1)
         else:
             self.imie = imie
             self.nazwisko = nazwisko
@@ -55,3 +56,4 @@ if __name__ == "__main__":
     Informacje.zmien_oceny(student1, "przedmiot3", 5.5)
     Informacje.wyswietl_oceny(student1)
     Informacje.wyswietl_oceny(student2)
+    # Informacje.wyswietl_oceny(student0)

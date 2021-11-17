@@ -16,11 +16,9 @@ class Kwadrat(Prostokat):
     def __init__(self, a, b):
         """init"""
         Prostokat.__init__(self, a, b)
-
-    def pole(self):
-        return self.a * self.a
+        self.b = self.a
 
 
 if __name__ == "__main__":
     print(Prostokat(5, 2).pole())
-    print(Kwadrat(5, 5).pole())
+    print(Kwadrat(5, 1).pole())
