@@ -4,7 +4,7 @@ class Informacje:
     def __init__(self, imie, nazwisko, indeks):
         """init"""
         if not str(indeks).isdecimal() or len(indeks) != 6:
-            print("podano niepoprawny indeks")
+            print(f"podano niepoprawny indeks studenta: {imie} {nazwisko}")
             # exit(1)
         else:
             self.imie = imie
@@ -19,10 +19,11 @@ class Informacje:
 
 class Student(Informacje):
     def __init__(self, imie, nazwisko, indeks):
+        """inicjalizacja informacji o studencie"""
         super().__init__(imie, nazwisko, indeks)
 
     def wyswietl_dane(self):
-        """Wyswietlenie informacji o studencie"""
+        """Metoda wyświetlająca informacje o studencie"""
         ocenianie = "\n".join([f"{przedmiot}: {ocena}" for przedmiot, ocena in self.oceny.items()])
         print(f"Student o ideksie {self.indeks}:\nImie: {self.imie}\n"
               f"Nazwisko: {self.nazwisko}\nOceny studenta:\n{ocenianie}")
@@ -30,8 +31,12 @@ class Student(Informacje):
     def wyswietl_oceny(self):
         """Wyswietlenie ocen studenta"""
         ocenianie = "\n".join([f"{przedmiot}: {ocena}" for przedmiot, ocena in self.oceny.items()])
-        #print(f"Oceny studenta {self.indeks}: {self.oceny}")
+        # print(f"Oceny studenta {self.indeks}: {self.oceny}")
         print(f"Oceny studenta {self.indeks}:\n{ocenianie}")
+
+    def wyswietl_ocene_z(self, przedmiot):
+        """Wyswietlenie ocen z konkretnego przedmiotu"""
+        print(f"Ocena studenta {self.indeks} z {przedmiot}: {self.oceny[przedmiot]}")
 
     def dodaj_oceny(self, przedmiot, ocena):
         """Dodanie nowej oceny do przedmiotu"""
@@ -75,6 +80,7 @@ if __name__ == "__main__":
     Student.dodaj_oceny(student1, "przedmiot5", 5.0)
     print('----')
     Student.wyswietl_oceny(student1)
+    Student.wyswietl_ocene_z(student1, "przedmiot1")
     print('----')
     Student.zmien_oceny(student1, "przedmiot3", 5.5)
     print('----')
