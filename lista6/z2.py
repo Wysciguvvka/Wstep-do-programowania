@@ -33,7 +33,7 @@ class Uzytkownik:
 class Admin(Uzytkownik):
     def __init__(self, username, fname, lname, email, password):
         super().__init__(username, fname, lname, email, password)
-        self.przywileje = Przywileje()
+        self.przywileje = Przywileje()  # ????????
 
 
 class Przywileje:
@@ -51,3 +51,5 @@ if __name__ == '__main__':
     user1.opisz_uzytkownika()
     user1.zaloguj('haslo')
     user1.opisz_uzytkownika()
+    admin1 = Admin('nazwa', 'imie', 'nazwisko', 'email', 'haslo')
+    Przywileje().pokaz_przywileje()
