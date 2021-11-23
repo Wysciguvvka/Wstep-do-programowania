@@ -28,7 +28,7 @@ class Restauracja:
         now = datetime.now().time()
         dzien = datetime.today().strftime("%A")
         otwarcie = f'Restauracja \"{self.nazwa}\" jest otwarta' if \
-            self.__jest_otwarta(now, dzien) and dzien != 'Sunday' else f'Restauracja \"{self.nazwa}\" jest zamknięta'
+            self.__jest_otwarta(now, dzien) else f'Restauracja \"{self.nazwa}\" jest zamknięta'
         print(otwarcie)
 
     def ustaw_liczbe_obsluzonych_klietow(self, ilosc):
