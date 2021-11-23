@@ -32,10 +32,7 @@ class Uzytkownik:
 
     def zaloguj(self, password):
         self.proby_logowania += 1
-        if md5(password.encode()).hexdigest() == self.__password:
-            print('Zalogowano')
-        else:
-            print('podano niepoprawne hasło')
+        print('Zalogowano' if md5(password.encode()).hexdigest() == self.__password else 'podano niepoprawne hasło')
 
 
 class Admin(Uzytkownik):
@@ -59,6 +56,7 @@ if __name__ == '__main__':
     user1.pozdrow_uzytkownika()
     user1.opisz_uzytkownika()
     user1.zaloguj('haslo')
+    user1.zaloguj('haslo1')
     user1.opisz_uzytkownika()
     admin1 = Admin('nazwa', 'imie', 'nazwisko', 'email1@pwr.edu.pl', 'haslo')
     Przywileje().pokaz_przywileje()
