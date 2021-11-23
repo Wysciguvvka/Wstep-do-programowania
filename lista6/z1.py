@@ -59,11 +59,11 @@ class Restauracja:
             'Saturday': 'Sobota',
             'Sunday': 'Niedziela'
         }
-        __godziny = f''
+        godziny_otwarcia = f''
         for key, value in self.godziny.items():
-            __godziny += f'{dni[key]}: {" - ".join([val.strftime("%H:%M") for val in value])}\n' if value \
+            godziny_otwarcia += f'{dni[key]}: {" - ".join([val.strftime("%H:%M") for val in value])}\n' if value \
                 else f'{dni[key]} - Zamknięte\n'
-        print(__godziny)
+        print(godziny_otwarcia)
 
 
 class Lodziarnia(Restauracja):
