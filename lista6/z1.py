@@ -94,9 +94,9 @@ class Lodziarnia(Restauracja):
         for arg in args:
             if arg in self.smaki:
                 self.smaki.remove(arg)
-                print(f'usunięto lody o smaku: {arg}')
+                print(f'Usunięto lody o smaku: {arg}')
             else:
-                print(f'lodów o smaku {arg} nie ma na liście.')
+                print(f'Lodów o smaku {arg} nie ma na liście.')
 
     def wyswietl_smaki(self):
         """Metoda wyświetląca smaki lodów"""
