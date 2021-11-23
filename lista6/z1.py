@@ -52,9 +52,20 @@ class Restauracja:
         except (TypeError, ValueError):
             print('Niepoprawna ilość klientów')
 
-    def zmien_godziny_otwarcia(self, godziny):
+    def zmien_godziny_otwarcia(self, nowe_godziny):
         """Metoda zmieniająca godziny otwarcia restauracji"""
-        self.godziny.update(godziny)
+        try:
+            for key, values in nowe_godziny.items():
+                if key not in self.godziny.keys():
+                    print('podano niepoprawny dzień')
+                    break
+                if values and (len(values) != 2 or any(not isinstance(arg, time) for arg in values)):
+                    print('Podano niepoprawne godziny')
+                    break
+            else:
+                self.godziny.update(nowe_godziny)
+        except TypeError:
+            print('Podano niepoprawne godziny')
 
     def wyswietl_godziny_otwarcia(self):
         _dni = {
@@ -120,8 +131,11 @@ if __name__ == '__main__':
     restauracja1.ustaw_liczbe_obsluzonych_klietow(0)
     restauracja1.wyswietl_godziny_otwarcia()
     restauracja1.jest_otwarta()
-    nowe_godziny = {'Wednesday': [time(10, 00), time(13, 30)], 'Sunday': [time(8, 00), time(14, 30)]}
-    restauracja1.zmien_godziny_otwarcia(nowe_godziny)
+
+    zmienione_godziny = {'Wednesday': [time(10, 00), time(13, 30)], 'Sunday': [time(8, 00), time(14, 30)]}
+    # zmienione_godziny = {'Wednesday': '1'}
+    restauracja1.zmien_godziny_otwarcia(zmienione_godziny)
+
     restauracja1.wyswietl_godziny_otwarcia()
     restauracja1.jest_otwarta()
     restauracja1.ustaw_liczbe_obsluzonych_klietow(-1)
