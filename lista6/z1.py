@@ -59,7 +59,7 @@ class Restauracja:
                 if key not in self.godziny.keys():
                     print('podano niepoprawny dzień')
                     break
-                if values and (len(values) != 2 or any(not isinstance(arg, time) for arg in values)):
+                if values and (len(values) != 2 or any(not isinstance(value, time) for value in values)):
                     print('Podano niepoprawne godziny')
                     break
             else:
