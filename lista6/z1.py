@@ -46,8 +46,24 @@ class Restauracja:
         except (TypeError, ValueError):
             print('Niepoprawna ilość klientów')
 
-    def zmien_godziny_otwarcia(self, *args):
-        pass  # todo
+    def zmien_godziny_otwarcia(self, godziny):
+        self.godziny.update(godziny)
+
+    def wyswietl_godziny_otwarcia(self):
+        dni = {
+            'Monday': 'Poniedziałek',
+            'Tuesday': 'Wtorek',
+            'Wednesday': 'Środa',
+            'Thursday': 'Czwartek',
+            'Friday': 'Piątek',
+            'Saturday': 'Sobota',
+            'Sunday': 'Niedziela'
+        }
+        __godziny = f''
+        for key, value in self.godziny.items():
+            __godziny += f'{dni[key]}: {" - ".join([val.strftime("%H:%M") for val in value])}\n' if value \
+                else f'{dni[key]} - Zamknięte\n'
+        print(__godziny)
 
 
 class Lodziarnia(Restauracja):
@@ -87,3 +103,7 @@ if __name__ == '__main__':
     lodziarnia1.usun_smaki('smak1')
     lodziarnia1.wyswietl_smaki()
     lodziarnia1.opis_restauracji()
+    restauracja1.wyswietl_godziny_otwarcia()
+    nowe_godziny = {'Sunday': [time(10, 00), time(16, 30)]}
+    restauracja1.zmien_godziny_otwarcia(nowe_godziny)
+    restauracja1.wyswietl_godziny_otwarcia()
