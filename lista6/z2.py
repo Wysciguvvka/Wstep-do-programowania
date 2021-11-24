@@ -28,9 +28,15 @@ class Uzytkownik:
         """Metoda wyświetlająca spersonalizowane pozdrowienie użytkownika"""
         print(f'Witam {self.fname.title()} {self.lname.title()}, pozdrawiam')
 
-    def dodaj_probe_logowania(self):
+    def dodaj_proby_logowania(self, val):
         """Metoda dodająca próby logowania"""
-        self.proby_logowania += 1
+        try:
+            if val >= 0 and isinstance(val, int):
+                self.proby_logowania += val
+            else:
+                print("Nieopoprawna ilość prób")
+        except TypeError:
+            print("Nieopoprawna ilość prób")
 
     def zresetuj_proby_logowania(self):
         """Metoda resetująca próby logowania"""
@@ -75,12 +81,14 @@ if __name__ == '__main__':
     print('----')
     user1.pozdrow_uzytkownika()
     user1.opisz_uzytkownika()
-    user1.dodaj_probe_logowania()
+    user1.dodaj_proby_logowania(-5)
+    user1.dodaj_proby_logowania('a')
+    user1.dodaj_proby_logowania(7)
     user1.zaloguj('haslo1')
     user1.zaloguj('haslo')
     user1.opisz_uzytkownika()
     print('----')
-    user2.dodaj_probe_logowania()
+    user2.dodaj_proby_logowania(5)
     user2.opisz_uzytkownika()
     user2.zresetuj_proby_logowania()
     user2.opisz_uzytkownika()
