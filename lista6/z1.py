@@ -77,7 +77,7 @@ class Restauracja:
             'Saturday': 'Sobota',
             'Sunday': 'Niedziela'
         }
-        godziny_otwarcia = f''
+        godziny_otwarcia = f'Godziny otwarcia restauracji \"{self.nazwa}\":\n'
         for key, value in self.godziny.items():
             godziny_otwarcia += f'{dni[key]}: {" - ".join([val.strftime("%H:%M") for val in value])}\n' if value \
                 else f'{dni[key]} - Zamknięte\n'
