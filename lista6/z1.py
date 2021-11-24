@@ -29,10 +29,10 @@ class Restauracja:
 
     def jest_otwarta(self):
         """Publiczna metoda sprawdzająca, czy restauracja teraz jest otwarta"""
-        now = datetime.now().time()
+        teraz = datetime.now().time()
         dzien = datetime.today().strftime("%A")
         otwarcie = f'Restauracja \"{self.nazwa}\" jest otwarta' if \
-            self.__jest_otwarta(now, dzien) else f'Restauracja \"{self.nazwa}\" jest zamknięta'
+            self.__jest_otwarta(teraz, dzien) else f'Restauracja \"{self.nazwa}\" jest zamknięta'
         print(otwarcie)
 
     def ustaw_liczbe_obsluzonych_klietow(self, ilosc):
