@@ -120,9 +120,10 @@ class Lodziarnia(Restauracja):
 
 if __name__ == '__main__':
     restauracja1 = Restauracja('Restauracja1', 'Typ1')
-    restauracja2 = Restauracja('Restauracja2', 'Typ2')
+    restauracja2 = Restauracja('Restauracja2', 'Typ2', 5)
     restauracja3 = Restauracja('Restauracja3', 'Typ3')
-    print(restauracja1.typ, restauracja2.nazwa, restauracja3.klienci)
+    print(restauracja1.typ)
+    print(restauracja2.nazwa, restauracja3.klienci)
     print('-----')
     restauracja1.opis_restauracji()
     restauracja1.jest_otwarta()
@@ -131,7 +132,9 @@ if __name__ == '__main__':
     restauracja1.ustaw_liczbe_obsluzonych_klietow(0)
     restauracja1.wyswietl_godziny_otwarcia()
     restauracja1.jest_otwarta()
+    restauracja1.opis_restauracji()
     print('-----')
+    restauracja2.opis_restauracji()
     restauracja2.ustaw_liczbe_obsluzonych_klietow(20)
     restauracja2.dodaj_liczbe_obsluzonych_klientow(5)
     restauracja2.wyswietl_godziny_otwarcia()
