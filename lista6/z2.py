@@ -60,9 +60,9 @@ class Admin(Uzytkownik):
 class Przywileje:
     """Klasa zawierająca przywileje administratora"""
 
-    def __init__(self, administrator):
+    def __init__(self, user):
         """Inicjalizacja klasy przywileje"""
-        self.przywileje = administrator.przywileje
+        self.przywileje = user.przywileje
 
     def pokaz_przywileje(self):
         """Wyświetlenie przywilejów administratora"""
@@ -91,3 +91,4 @@ if __name__ == '__main__':
     przywileje = Przywileje(admin1)
     przywileje.pokaz_przywileje()
     admin1.pokaz_przywileje()
+

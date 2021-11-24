@@ -131,7 +131,20 @@ if __name__ == '__main__':
     restauracja1.ustaw_liczbe_obsluzonych_klietow(0)
     restauracja1.wyswietl_godziny_otwarcia()
     restauracja1.jest_otwarta()
-
+    print('-----')
+    restauracja2.ustaw_liczbe_obsluzonych_klietow(20)
+    restauracja2.dodaj_liczbe_obsluzonych_klientow(5)
+    restauracja2.wyswietl_godziny_otwarcia()
+    restauracja2.jest_otwarta()
+    restauracja2.opis_restauracji()
+    print('-----')
+    restauracja3.ustaw_liczbe_obsluzonych_klietow(24)
+    restauracja3.dodaj_liczbe_obsluzonych_klientow(-5)
+    restauracja3.wyswietl_godziny_otwarcia()
+    restauracja3.zmien_godziny_otwarcia({'Wednesday': [time(10, 00), time(20, 00)]})
+    restauracja3.jest_otwarta()
+    restauracja3.opis_restauracji()
+    print('-----')
     zmienione_godziny = {'Wednesday': None, 'Sunday': [time(8, 00), time(14, 30)]}
     # zmienione_godziny = {'Wednesday': '1'}
     # zmienione_godziny = {'dzien': '1'}
@@ -150,3 +163,4 @@ if __name__ == '__main__':
     lodziarnia1.usun_smaki('smak3')
     lodziarnia1.wyswietl_smaki()
     lodziarnia1.opis_restauracji()
+    lodziarnia1.jest_otwarta()
