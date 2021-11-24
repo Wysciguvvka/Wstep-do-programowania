@@ -21,7 +21,7 @@ class Restauracja:
 
     def opis_restauracji(self):
         """Metoda wyświetlająca informacje o restauracji"""
-        print(f"{self.nazwa}, {self.typ}, {self.klienci}")
+        print(f"Nazwa restauracji: \"{self.nazwa}\", Typ: {self.typ}, Ilość klientów: {self.klienci}")
 
     def __jest_otwarta(self, data, dzien):
         """prywatna metoda sprawdzająca, czy restauracja jest otwarta"""
@@ -65,10 +65,10 @@ class Restauracja:
             else:
                 self.godziny.update(nowe_godziny)
         except TypeError:
-            print('Podano niepoprawne godziny')
+            print('Podano niepoprawny format')
 
     def wyswietl_godziny_otwarcia(self):
-        _dni = {
+        dni = {
             'Monday': 'Poniedziałek',
             'Tuesday': 'Wtorek',
             'Wednesday': 'Środa',
@@ -79,17 +79,17 @@ class Restauracja:
         }
         godziny_otwarcia = f''
         for key, value in self.godziny.items():
-            godziny_otwarcia += f'{_dni[key]}: {" - ".join([val.strftime("%H:%M") for val in value])}\n' if value \
-                else f'{_dni[key]} - Zamknięte\n'
+            godziny_otwarcia += f'{dni[key]}: {" - ".join([val.strftime("%H:%M") for val in value])}\n' if value \
+                else f'{dni[key]} - Zamknięte\n'
         print(godziny_otwarcia)
 
 
 class Lodziarnia(Restauracja):
     """Klasa zawierajca informacje o lodziarni"""
 
-    def __init__(self, nazwa, typ):
+    def __init__(self, nazwa):
         """inicjalizacja klasy lodziarnia"""
-        super().__init__(nazwa, typ)
+        super().__init__(nazwa, "Lodziarnia")
         self.smaki = []
 
     def dodaj_smaki(self, *args):
@@ -132,8 +132,9 @@ if __name__ == '__main__':
     restauracja1.wyswietl_godziny_otwarcia()
     restauracja1.jest_otwarta()
 
-    zmienione_godziny = {'Wednesday': [time(10, 00), time(13, 30)], 'Sunday': [time(8, 00), time(14, 30)]}
+    zmienione_godziny = {'Wednesday': None, 'Sunday': [time(8, 00), time(14, 30)]}
     # zmienione_godziny = {'Wednesday': '1'}
+    # zmienione_godziny = {'dzien': '1'}
     restauracja1.zmien_godziny_otwarcia(zmienione_godziny)
 
     restauracja1.wyswietl_godziny_otwarcia()
@@ -141,7 +142,7 @@ if __name__ == '__main__':
     restauracja1.ustaw_liczbe_obsluzonych_klietow(-1)
     restauracja1.opis_restauracji()
     print('-----')
-    lodziarnia1 = Lodziarnia('Lodziarnia1', 'Typ1')
+    lodziarnia1 = Lodziarnia('Lodziarnia1')
     lodziarnia1.wyswietl_smaki()
     lodziarnia1.dodaj_smaki('smak1', 'smak2')
     lodziarnia1.wyswietl_smaki()
