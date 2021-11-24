@@ -91,4 +91,3 @@ if __name__ == '__main__':
     przywileje = Przywileje(admin1)
     przywileje.pokaz_przywileje()
     admin1.pokaz_przywileje()
-
