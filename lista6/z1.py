@@ -129,7 +129,7 @@ if __name__ == '__main__':
     restauracja1.jest_otwarta()
     restauracja1.dodaj_liczbe_obsluzonych_klientow(23)
     restauracja1.opis_restauracji()
-    restauracja1.ustaw_liczbe_obsluzonych_klietow(0)
+    #restauracja1.ustaw_liczbe_obsluzonych_klietow(0)
     restauracja1.wyswietl_godziny_otwarcia()
     restauracja1.jest_otwarta()
     restauracja1.opis_restauracji()

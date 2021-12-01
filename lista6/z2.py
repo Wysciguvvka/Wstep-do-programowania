@@ -58,9 +58,13 @@ class Admin(Uzytkownik):
         self.przywileje = ['Może dodać post', 'Może usunąć post', 'Może zablokować użytkownika',
                            'Może odblokować użytkownika']
 
+
+'''
     def pokaz_przywileje(self):
         """Wyświetlenie przywilejów administratora"""
         print(f"Przywileje: {', '.join([przywilej for przywilej in self.przywileje])}")
+
+'''
 
 
 class Przywileje:
@@ -99,5 +103,5 @@ if __name__ == '__main__':
     przywileje.pokaz_przywileje()
     admin1.dodaj_proby_logowania(-5)
     admin1.dodaj_proby_logowania(3)
-    admin1.pokaz_przywileje()
+    # admin1.pokaz_przywileje()
     admin1.opisz_uzytkownika()
