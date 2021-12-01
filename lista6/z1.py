@@ -147,6 +147,7 @@ if __name__ == '__main__':
     restauracja3.zmien_godziny_otwarcia({'Wednesday': [time(10, 00), time(20, 00)]})
     restauracja3.jest_otwarta()
     restauracja3.opis_restauracji()
+    restauracja3.wyswietl_godziny_otwarcia()
     print('-----')
     zmienione_godziny = {'Wednesday': None, 'Sunday': [time(8, 00), time(14, 30)]}
     # zmienione_godziny = {'Wednesday': '1'}
