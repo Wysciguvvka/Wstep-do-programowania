@@ -6,7 +6,7 @@ if __name__ == '__main__':
         print('plik nie istnieje')
     else:
         print(f'Ilość znaków: {len(data)}')
-        text = input('wpisz szukanją frazę: ')
+        text = input('wpisz szukaną frazę: ')
         print(f'Podana fraza pojawia się {data.count(text)} raz/y')
 
 
