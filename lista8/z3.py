@@ -5,7 +5,8 @@ if __name__ == '__main__':
     except FileNotFoundError:
         print('plik nie istnieje')
     else:
-        print(data)
-
+        print(f'Ilość znaków: {len(data)}')
+        text = input('wpisz szukanją frazę: ')
+        print(f'Podana fraza pojawia się {data.count(text)} raz/y')
 
 
