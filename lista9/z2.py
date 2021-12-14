@@ -1,11 +1,12 @@
-from pathlib import Path
+# from pathlib import Path
 import os
 import re
 
 
 def pdf(path):
-    directory = Path(f"{path}\\")
-    if directory.exists():
+    directory = os.path.basename(f"{path}")
+    # directory = Path(f"{path}\\")
+    if os.path.exists(directory):  # directory.exists()
         files = []
         pattern = r"^(.*praca.*)\.(pdf)$"
         for dirpath, dirname, filenames in os.walk(directory):
