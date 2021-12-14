@@ -6,21 +6,19 @@ import datetime
 class Pamietnik:
     def __init__(self, filename):
         """Inicjalizacja klasy pamietnik"""
-        self.file = Path(f"z1\\{filename}.json")
-        if self.file.exists():
-            with open(self.file, "r") as jsf:
+        self.plik = Path(f"z1\\{filename}.json")
+        if self.plik.exists():
+            with open(self.plik, "r") as jsf:
                 self.wpisy = json.load(jsf)
-            print(f"Pomyślnie wczytano pamiętnik: {filename}")
         else:
-            print(f"Utworzono nowy pamiętnik: {filename}")
             self.wpisy = []
-            with open(self.file, "w") as jsf:
+            with open(self.plik, "w") as jsf:
                 json.dump(self.wpisy, jsf)
 
     def dodaj_wpis(self, wpis):
         """dodaje wpis do pamietnika"""
         self.wpisy.append({"data": datetime.datetime.now().strftime("%c"), "wpis": wpis})
-        with open(self.file, "w") as jsf:
+        with open(self.plik, "w") as jsf:
             json.dump(self.wpisy, jsf)
 
     def wyswietl_wpisy(self):
@@ -28,9 +26,10 @@ class Pamietnik:
         if not self.wpisy:
             print("W pliku nie ma jeszcze żadnych wpisów.")
         else:
-            posortowane_wpisy = sorted(self.wpisy, key=lambda x: datetime.datetime.strptime(x['data'], '%c'))
-            _tekst = "\n".join([f"{': '.join(dt.values())}" for dt in posortowane_wpisy])
-            print(_tekst)
+            posortowane_wpisy = sorted(self.wpisy, key=lambda x: datetime.datetime.strptime(x['data'], '%c'),
+                                       reverse=True)
+            tekst = "\n".join([f"{': '.join(dt.values())}" for dt in posortowane_wpisy])
+            print(tekst)
 
 
 def program_pamietnik():
