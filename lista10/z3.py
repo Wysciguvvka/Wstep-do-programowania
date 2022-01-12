@@ -8,6 +8,7 @@ def leading_minor(m, k):
 
 
 def lu(matrix):
+    """Rozkład macierzy bez wyboru częściowego elementu głównego (Macierzy permutacji)"""
     if not isinstance(matrix, np.ndarray):
         raise TypeError("Podana wartość nie jest macierzą")
     if matrix.ndim == 0:
@@ -23,9 +24,3 @@ def lu(matrix):
         else:
             return True
     return False
-
-
-if __name__ == '__main__':
-    ma = np.array([[2, 1], [1, 1]])
-    #ma = np.array([1])
-    print(lu(ma))
