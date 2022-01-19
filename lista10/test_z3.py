@@ -5,7 +5,7 @@ import numpy as np
 
 class TestLU(unittest.TestCase):
 
-    def test_non_matrix(self):  # nazwy muszą zaczynać się od test
+    def test_non_matrix(self):
         self.assertRaises(TypeError, lu.lu, "matrix")
 
     def test_non_square_matrix(self):
@@ -40,6 +40,7 @@ class TestLU(unittest.TestCase):
                            [4, 5, 6],
                            [2, 6, 7]])
         self.assertEqual(lu.lu(matrix), True)
+
 
 if __name__ == '__main__':
     unittest.main()
