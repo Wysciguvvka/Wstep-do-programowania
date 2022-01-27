@@ -1,10 +1,9 @@
 import codecs
 import sys
-from PyQt5 import QtWidgets
-from PyQt5.QtGui import QRegExpValidator
-from PyQt5.QtWidgets import QWidget, QPlainTextEdit, QPushButton, QTabWidget, QVBoxLayout, QLabel, \
+from PySide6 import QtWidgets
+from PySide6.QtWidgets import QWidget, QPlainTextEdit, QPushButton, QTabWidget, QVBoxLayout, QLabel, \
     QLineEdit, QCheckBox, QHBoxLayout
-from PyQt5.QtCore import QDate, QRegExp
+from PySide6.QtCore import QDate
 
 
 class Window(QWidget):
@@ -38,7 +37,7 @@ class Window(QWidget):
 
         button = QPushButton(self)
         button.setText("Encrypt/Decrypt")
-        button.clicked.connect(lambda: _encrypt())
+        button.clicked.connect(_encrypt)
         layout = QVBoxLayout()
         layout.addWidget(rot13text)
         layout.addWidget(button)
@@ -60,11 +59,11 @@ class Window(QWidget):
         # result.setText(f"Time difference:")
         result.setText(
             f"Time difference: "
-            f"{int(abs((date1.date().toPyDate() - date2.date().toPyDate()).total_seconds() / 3600))} hours")
+            f"{int(abs((date1.date().toPython() - date2.date().toPython()).total_seconds() / 3600))} hours")
 
         def _deltatime():
-            start = date1.date().toPyDate()
-            end = date2.date().toPyDate()
+            start = date1.date().toPython()
+            end = date2.date().toPython()
             result.setText(f"Time difference: {int(abs((start - end).total_seconds() / 3600))} hours")
 
         # date1.dateTimeChanged.connect(_deltatime)
@@ -83,13 +82,10 @@ class Window(QWidget):
         self.page2.setLayout(layout)
 
     def backgroundcolor(self):
-        rx = QRegExp("^#(?:[0-9a-fA-F]{3}){1,2}$")
-        validator = QRegExpValidator(rx, self)
         label = QLabel()
         label.setText(f"Color Hex Code:")
         apply = QCheckBox("Apply")
         line = QLineEdit()
-        line.setValidator(validator)
         line.setMaxLength(7)
         line.setPlaceholderText("#ffffff")
         line.textChanged.connect(lambda: self.setStyleSheet(

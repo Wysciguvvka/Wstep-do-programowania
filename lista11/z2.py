@@ -85,18 +85,22 @@ class Database:
 if __name__ == '__main__':
     create()
     with Database("employees.db") as db:
+        print('\n--------\n')
         print(db.get_result('SELECT * FROM departments'))
         print(db.get_result('SELECT first_name, last_name FROM employees'))
         print(db.get_result('SELECT employees.first_name, employees.last_name, departments.department_name\
                         FROM employees INNER JOIN departments on  departments.department_id = employees.department_id '
                             'WHERE departments.department_id = 1 ;'))
+        print('\n--------\n')
         db.query('DELETE FROM employees WHERE employee_id = 1')
         print(db.get_result('SELECT employees.first_name, employees.last_name, departments.department_name\
                 FROM employees INNER JOIN departments on  departments.department_id = employees.department_id '
                             'WHERE departments.department_id = 1;'))
+        print('\n--------\n')
         db.query('DELETE FROM departments WHERE department_id = 1;')
         print(db.get_result('SELECT * FROM departments'))
         print(db.get_result('SELECT * FROM employees'))
+        print('\n--------\n')
         db.query('UPDATE departments SET department_id = 5 WHERE department_id = 2;')
         print(db.get_result('SELECT * FROM departments'))
         print(db.get_result('SELECT * FROM employees'))
