@@ -63,8 +63,6 @@ if __name__ == '__main__':
         pass
     """Dodatkowe uwagi
      if name == main - wykonanie, gdy plik nie jest zaimportowany jako modul
-     byc moze na stronie test2 jest zepsuty: podanie tylko jednego zestawu danych jako input
-     + oczekiwanie na wyswietlenie danych ktore nie zostały podane
      f'text' - f-stringi
      wykorzystane: 
      regex do sprawdzenia zestawu danych
