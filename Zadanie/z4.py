@@ -1,5 +1,5 @@
 class CiagGeometryczny:
-    def __init__(self, a1: float | int, q: float | int, n: int):
+    def __init__(self, a1: float | int, q: float | int, n: int) -> None:
         self.a1 = a1
         self.q = q
         self.n = n
@@ -9,14 +9,14 @@ class CiagGeometryczny:
         """
         self.wyrazy = [a1 * (q ** i) for i in range(0, n)]
 
-    def add(self):
+    def add(self) -> None:
         """mnozenie ostatniego elementu z listy (-1 index) przez q"""
         self.wyrazy.append(self.wyrazy[-1] * self.q)
 
-    def print(self):
+    def print(self) -> list:
         return self.wyrazy
 
-    def rozmiar(self):
+    def rozmiar(self) -> int:
         return len(self.wyrazy)
 
 

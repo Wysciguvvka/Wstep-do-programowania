@@ -2,7 +2,7 @@ from __future__ import annotations
 
 
 class Czas:
-    def __init__(self, godzin: str, minut: str = None):
+    def __init__(self, godzin: str, minut: str = None) -> None:
         """Inicjalizacja klasy, minut jest opcjonalnm argumentem"""
         if not minut:
             """Tutaj troche chiny = jezeli nie ma minut to split tam gdzie spacja i wziecie

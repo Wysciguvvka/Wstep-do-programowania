@@ -1,5 +1,5 @@
 class Colors:
-    def __init__(self):
+    def __init__(self) -> None:
         # __ oznacza prywatny atrybut (pole)
         self.__przykladowe_kolory = {
             "Red": "#e6194B",
@@ -26,7 +26,7 @@ class Colors:
             "Black": "#000000",
         }
 
-    def to_hex(self, color: str):
+    def to_hex(self, color: str) -> str:
         """Metoda zwracajaca hex koloru na podstawie jego nazwy"""
         color = color.lower().capitalize()
         # pierwsza litera z duzej aby sie zgadzalo dict -> key

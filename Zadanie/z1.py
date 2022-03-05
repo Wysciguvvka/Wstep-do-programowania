@@ -1,5 +1,5 @@
 class Zwierze:
-    def __init__(self, imie: str, wiek: int, rodzaj: str):
+    def __init__(self, imie: str, wiek: int, rodzaj: str) -> None:
         self.imie = imie
         self.wiek = wiek
         self.rodzaj = rodzaj

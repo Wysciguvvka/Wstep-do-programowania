@@ -1,15 +1,15 @@
 class Prostokat:
-    def __init__(self, dlugosc: float | int, szerokosc: float | int):
+    def __init__(self, dlugosc: float | int, szerokosc: float | int) -> None:
         if dlugosc <= 0 or szerokosc <= 0:
             # upewnienie sie, ze wartosci sa dodatnie
             raise ValueError
         self.a = dlugosc
         self.b = szerokosc
 
-    def pole(self):
+    def pole(self) -> float | int:
         return self.a * self.b
 
-    def obwod(self):
+    def obwod(self) -> float | int:
         return 2 * (self.a + self.b)
 
 
