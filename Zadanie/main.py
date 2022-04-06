@@ -1,17 +1,14 @@
-from menu import *
-
-
-# from calendar import
+from menu import Menu, NewEvent, ListCalendar, ExportCalendar, ExitCommand
 
 
 #
-# w tym miejscu możesz napisać kod odpowiedzialny za menu (polecenia)
-# i strategie wyświetlania wydarzeń z kalendarza
+# w tym miejscu możesz napisać kod odpowiedzialny za menu (polecenia) <- zrobione w menu
+# i strategie wyświetlania wydarzeń z kalendarza <- zrobione w calendar
 #
 
-def main():
+def main() -> None:
     # wydarzenia przechowuj w liście
-    calendar = []
+    # calendar = [] <- zrobione w klasie Menu
 
     # zakładamy, że wydarzenie to słownik z kluczami title, date, time
     # jeśli chcesz przechowywać wydarzenie w innej strukturze danych

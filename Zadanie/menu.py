@@ -37,11 +37,14 @@ class NewEvent(MenuCommand):
     def __init__(self, menu: Menu) -> None:
         self.menu = menu
 
-    def description(self):
+    def description(self) -> str:
         return "New event"
 
-    def execute(self):
+    def execute(self) -> None:
         title = input('Title: ')
+        if not re.match(r'^[a-zA-Z0-9 ,.-]+$', title):
+            print('Invalid input')
+            return
         date = input('Date: ')
         if not re.match(r'^(\d{1,2}).(\d{1,2}).(\d{4})$', date):
             print('Invalid input')
@@ -61,10 +64,10 @@ class ListCalendar(MenuCommand):
     def __init__(self, menu: Menu) -> None:
         self.menu = menu
 
-    def description(self):
+    def description(self) -> str:
         return "List calendar"
 
-    def execute(self):
+    def execute(self) -> None:
         from calendar import list_calendar, ListingStrategy
         strategy = ListingStrategy()
         list_calendar(self.menu.calendar, strategy)
@@ -74,10 +77,10 @@ class ExportCalendar(MenuCommand):
     def __init__(self, menu: Menu) -> None:
         self.menu = menu
 
-    def description(self):
+    def description(self) -> str:
         return "Export calendar to iCalendar"
 
-    def execute(self):
+    def execute(self) -> None:
         _events = []
         for event in self.menu.calendar:
             _event = event.copy()
@@ -88,22 +91,24 @@ class ExportCalendar(MenuCommand):
                          f'DTSTART:{_format}\n' \
                          f'DTEND:{_format}\n' \
                          f'SUMMARY:{_event["Title"]}\n' \
-                         f'END:VEVENT'
+                         f'END:VEVENT\n'
             _events.append(_event_txt)
-        events = '\n'.join(_events)
+        events = ''.join(_events)
         _text = f'BEGIN:VCALENDAR\n' \
                 f'VERSION:2.0\n' \
                 f'BEGIN:VTIMEZONE\n' \
                 f'TZID:Europe/Warsaw\n' \
                 f'X-LIC-LOCATION:Europe/Warsaw\n' \
                 f'END:VTIMEZONE\n' \
-                f'{events}\n' \
+                f'{events or ""}' \
                 f'END:VCALENDAR'
         print(_text)
+        with open('calendar.ics', 'w+', encoding='utf8') as _ics:
+            _ics.write(_text)
 
 
 class Menu:
-    def __init__(self):
+    def __init__(self) -> None:
         self._commands = []
         self._stop = False
         self.calendar = []
@@ -119,7 +124,7 @@ class Menu:
     def stop(self) -> None:
         self._stop = True
 
-    def _display_menu(self):
+    def _display_menu(self) -> None:
         for cmd in self._commands:
             print(f'{self._commands.index(cmd) + 1}. {cmd.description()}')
 

@@ -10,7 +10,8 @@ class ListingStrategy:
     def begin(self) -> None:
         pass
 
-    def event(self, title, date, time) -> None:
+    @staticmethod
+    def event(title, date, time) -> None:
         print(f'Title: {title}\nDate: {date}, {time}')
 
     def end(self) -> None:
