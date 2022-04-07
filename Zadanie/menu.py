@@ -68,8 +68,8 @@ class ListCalendar(MenuCommand):
         return "List calendar"
 
     def execute(self) -> None:
-        from calendar import list_calendar, ListingStrategy
-        strategy = ListingStrategy()
+        from calendar import list_calendar, PrintStrategy
+        strategy = PrintStrategy()
         list_calendar(self.menu.calendar, strategy)
 
 
@@ -81,30 +81,10 @@ class ExportCalendar(MenuCommand):
         return "Export calendar to iCalendar"
 
     def execute(self) -> None:
-        _events = []
-        for event in self.menu.calendar:
-            _event = event.copy()
-            _date = _event['Date'].split('.')
-            _time = _event['Time'].replace(':', '')
-            _format = f'{_date[2]}{_date[1]}{_date[0]}T{_time}00'
-            _event_txt = f'BEGIN:VEVENT\n' \
-                         f'DTSTART:{_format}\n' \
-                         f'DTEND:{_format}\n' \
-                         f'SUMMARY:{_event["Title"]}\n' \
-                         f'END:VEVENT\n'
-            _events.append(_event_txt)
-        events = ''.join(_events)
-        _text = f'BEGIN:VCALENDAR\n' \
-                f'VERSION:2.0\n' \
-                f'BEGIN:VTIMEZONE\n' \
-                f'TZID:Europe/Warsaw\n' \
-                f'X-LIC-LOCATION:Europe/Warsaw\n' \
-                f'END:VTIMEZONE\n' \
-                f'{events or ""}' \
-                f'END:VCALENDAR'
-        print(_text)
-        with open('calendar.ics', 'w+', encoding='utf8') as _ics:
-            _ics.write(_text)
+        from calendar import list_calendar, ExportStrategy
+        strategy = ExportStrategy()
+        calendar = self.menu.calendar
+        list_calendar(calendar, strategy)
 
 
 class Menu:
